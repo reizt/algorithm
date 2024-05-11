@@ -5,7 +5,7 @@ tasks:
     watch: true
     method: timestamp
     vars:
-      DIR: '{{.CLI_ARGS}}'
+      DIR: 'src/{{.CLI_ARGS}}'
     sources:
       - '{{.DIR}}/*'
     cmds:
