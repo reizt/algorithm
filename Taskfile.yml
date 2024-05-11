@@ -1,0 +1,12 @@
+version: '3'
+
+tasks:
+  do:
+    vars:
+      DIR: '{{.CLI_ARGS}}'
+    sources:
+      - '{{.DIR}}/*'
+    cmds:
+      - gcc -o bin/{{.DIR}} {{.DIR}}/main.c $(find {{.DIR}} -name '*.c' | grep -v "main.c")
+      - clear
+      - ./bin/{{.DIR}}
