@@ -2,11 +2,13 @@ version: '3'
 
 tasks:
   do:
+    watch: true
+    method: timestamp
     vars:
       DIR: '{{.CLI_ARGS}}'
     sources:
       - '{{.DIR}}/*'
     cmds:
-      - gcc -o bin/{{.DIR}} {{.DIR}}/main.c $(find {{.DIR}} -name '*.c' | grep -v "main.c")
       - clear
+      - gcc -o bin/{{.DIR}} {{.DIR}}/main.c $(find {{.DIR}} -name '*.c' | grep -v "main.c")
       - ./bin/{{.DIR}}
